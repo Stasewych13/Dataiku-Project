@@ -94,7 +94,8 @@
 
 > Важливі рішення щодо архітектури/процесу та **чому** саме так. Щоб не передумувати по колу.
 
-> _(Порожньо. Формат: `YYYY-MM-DD` — рішення — причина — альтернативи, що відкинули.)_
+- `2026-06-24` — Розглядаємо **програмну побудову Flow через `dataikuapi`** (Public API). Claude Code і Dataiku на одному робочому пристрої ⇒ мережевий доступ до DSS є ⇒ **Режим A** (Claude напряму створює об'єкти в DSS) технічно можливий. Альтернатива — Режим B (Claude генерує код, запускається у notebook/recipe всередині DSS). Передумова: узгодити з політиками банку (Claude + API-доступ).
+  - API key: Profile & Settings → API keys (Personal) → New. Host = internal-URL із браузера. Ключ — лише в env var (`DSS_API_KEY`), НЕ в repo. On-prem → ймовірно self-signed TLS (`verify=False` / CA банку). Спершу тестовий проєкт, не прод.
 
 ## 8. Open questions
 
@@ -105,7 +106,10 @@
 - [x] Тип ноди — ✅ **Design node**, 2026-06-24.
 - [ ] Чи є інші ноди (Automation / API / Govern)? (уточнити в адмінів — для self-managed зазвичай є окрема Automation для прод-запусків)
 - [~] Connections — відомі: Amazon Redshift, SQL, Google Sheets, Jira (+ File System, HTTP). Уточнити: точні назви Redshift/SQL connection (клік по плитці) і чи є ще приховані правами.
+- [x] Середовище Claude — ✅ Claude Code і Dataiku на одному робочому пристрої ⇒ мережевий доступ до DSS є (Режим A можливий), 2026-06-24.
 - [ ] Звідки беремо дані для першого завдання: Redshift / Sheets / Jira?
+- [ ] Узгодити з IT/безпекою банку: чи дозволені Claude Code + програмний API-доступ до DSS.
+- [ ] Розширити skill секцією «програмна побудова Flow» + `references/programmatic-flow.md` (за згодою).
 - [ ] Чи є усталені naming/zone/tag conventions, чи приймаємо рекомендовані?
 - [ ] Який цільовий use-case першого завдання? (що робимо з даними Sheets/Jira)
 
