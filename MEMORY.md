@@ -22,13 +22,13 @@
 > Заповнити при першому контакті з живим DSS.
 
 - **Тип:** ✅ **self-managed on-prem** — розгорнуто на внутрішньому сервері ПриватБанку (підтверджено 2026-06-24). Отже `docs/` про Dataiku Cloud/Fleet Manager — довідково, не наш кейс.
-- **DSS версія:** `TBD` → подивитися: правий верхній кут → аватар → **About Dataiku** (або внизу сторінки логіну). Важливо: визначає точні UI-підписи; `docs/` орієнтовані на 13.x/14.x.
+- **DSS версія:** `TBD` → подивитися: іконка **`?`** (Help Center) у верхній панелі → прокрутити **вниз** → **About**. ⚠️ НЕ під аватаром (перевірено 2026-06-24: у меню аватара кнопки About немає). Резерв: версія у шляху посилання Documentation (`doc.dataiku.com/dss/<версія>/`), внизу сторінки логіну, або `dataiku.api_client().get_instance_info().raw.get("dssVersion")`. Важливо: визначає точні UI-підписи; `docs/` орієнтовані на 13.x/14.x.
 - **Edition / ліцензія:** `TBD` → `Administration → Licensing` (адмін-права). Впливає на UIF, containerized execution, Govern, Advanced LLM Mesh.
 - **URL Design node:** не записувати в публічний репо (внутрішній хост банку). Тип ноди визначити за UI: бачиш Flow + Lab + recipes → Design node.
 - **Як автентифікуємось:** _(SSO / local / LDAP)_ — `TBD` (для банку найімовірніше корпоративний SSO)
 - **Програмний доступ:** є API node? `TBD`; є API key для `dataikuapi`? `TBD` (ключ/хост — НЕ сюди, лише факт наявності)
 
-> **Як визначити параметри інстансу (без адмінки):** версія — аватар → About; «це Design node» — якщо є Flow/Lab/recipes; доступні connections — `+ New dataset`. Топологію (Automation/API/Govern), повний список connections і ліцензію найточніше уточнити в **внутрішньої команди адмінів Dataiku ПриватБанку**.
+> **Як визначити параметри інстансу (без адмінки):** версія — іконка `?` (Help Center) → внизу **About** (НЕ аватар!); «це Design node» — якщо є Flow/Lab/recipes; доступні connections — `+ New dataset`. Топологію (Automation/API/Govern), повний список connections і ліцензію найточніше уточнити в **внутрішньої команди адмінів Dataiku ПриватБанку**.
 
 ## 2. Топологія нод (deployment)
 
